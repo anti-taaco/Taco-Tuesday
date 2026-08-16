@@ -1,0 +1,15 @@
+res://scenes/enemies/cannonball.tscn::8592247d3c5bfec9e6abe2f76b91c21f::1733889152::res://.godot/exported/133200997/export-b46dd37ac6104dbd256606fa9dba9f18-cannonball.scn
+res://scenes/enemies/enemyProj.tscn::b2600cab054f32ba19ba79c3eb4b6966::1733709564::res://.godot/exported/133200997/export-5f0cd177c59c7a18033e097c1e5e5e38-enemyProj.scn
+res://scenes/enemies/guard.tscn::a06179d19acff6e47ec6d9cf942a5e12::1733709564::res://.godot/exported/133200997/export-bab6a456d3b060d65438bab34100c605-guard.scn
+res://scenes/levels/game.tscn::898c072e886cb1a701cd1403f7384e57::1733889347::res://.godot/exported/133200997/export-58baeaa54cca0447d5462d1fef7633ef-game.scn
+res://scenes/levels/main_menu.tscn::90e44c445daae0c28f4678c2696fc30e::1733889152::res://.godot/exported/133200997/export-c9d4cdb98d2720f278f6e650c673ef49-main_menu.scn
+res://scenes/playerStuff/explosion.tscn::9a0dc81d52230516214e2bcefc9dc35e::1733889152::res://.godot/exported/133200997/export-7184149ba27da61b83f1f2360cb7f774-explosion.scn
+res://scenes/playerStuff/melee.tscn::7c8ac277b094bc4305d0e545ef1d74d1::1733889152::res://.godot/exported/133200997/export-6aac6d6045a97b8ee761b8ee8bf7d52c-melee.scn
+res://scenes/playerStuff/player.tscn::d7f4580a04c29ad256a26d71e086708b::1733889152::res://.godot/exported/133200997/export-1bc1d945f37e580bf8604153ee2748bd-player.scn
+res://scenes/playerStuff/projectile.tscn::cabd14a1111fa91c0b1ad32134eb83db::1733889152::res://.godot/exported/133200997/export-80fffc8774d04b35d1d5ee00ed2a2160-projectile.scn
+res://scenes/playerStuff/weapon.tscn::145187572e325c0d5fe469c0b4d5d284::1733889152::res://.godot/exported/133200997/export-9f3c8108dd807ca72642fd00a767e29f-weapon.scn
+res://scenes/playerUI/gameui.tscn::fc5668cfa2d2f77cdf402642b62b3873::1733889152::res://.godot/exported/133200997/export-859bd741128803e7de7d9131d6f87eff-gameui.scn
+res://scenes/playerUI/healthbar.tscn::4bb9f05b16e9c6ee6b25179db9b33211::1733709564::res://.godot/exported/133200997/export-35591a0e070ce579cd6cc1236e0e000a-healthbar.scn
+res://scenes/playerUI/invisible.tscn::79563de9fce7048cfbc861ccc094fdd0::1733709564::res://.godot/exported/133200997/export-c23e18f340c7ba70b64e4f35a79acfc1-invisible.scn
+res://scenes/playerUI/pauseMenu.tscn::8fb90dfe7948d8d4a16ff0c77b8a5741::1733889152::res://.godot/exported/133200997/export-b7357fba8484d7f98641dd96a10b0964-pauseMenu.scn
+res://scenes/playerUI/stamina.tscn::7f4600efc889b11b8c712cf00546be1c::1733709564::res://.godot/exported/133200997/export-6d1065274bc121368766a7d379610389-stamina.scn

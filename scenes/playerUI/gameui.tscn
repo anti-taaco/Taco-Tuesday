@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8vxjcy1w1jyc"]
+
+[ext_resource type="Script" uid="uid://b1e55y5vuecve" path="res://scripts/gameui.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://cdh4c6f0087yc" path="res://scenes/playerUI/pauseMenu.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/playerUI/healthbar.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/playerUI/stamina.tscn" id="4"]
+
+[node name="GameUI" type="CanvasLayer"]
+script = ExtResource("1")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2")]
+offset_left = 1000.0
+offset_top = 495.0
+offset_right = -920.0
+offset_bottom = -529.0
+
+[node name="Healthbar" parent="." instance=ExtResource("3")]
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 442.0
+offset_bottom = 63.0
+
+[node name="Stamina" parent="." instance=ExtResource("4")]
+offset_left = 31.0
+offset_top = 79.0
+offset_right = 442.0
+offset_bottom = 107.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 115.0
+offset_top = 189.0
+offset_right = 247.0
+offset_bottom = 244.0
+theme_override_font_sizes/font_size = 40
+text = "AMMO"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 120.0
+offset_top = 243.0
+offset_right = 204.0
+offset_bottom = 298.0
+theme_override_font_sizes/font_size = 40
+text = "CLIP"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 55.0
+offset_top = 135.0
+offset_right = 153.0
+offset_bottom = 190.0
+theme_override_font_sizes/font_size = 40
+text = "SLOT
+"

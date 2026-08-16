@@ -1,0 +1,128 @@
+[gd_scene load_steps=19 format=3 uid="uid://dg02d2fqlwvfk"]
+
+[ext_resource type="Script" uid="uid://dbco2xrkhwg0o" path="res://scripts/player.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://c8vxjcy1w1jyc" path="res://scenes/playerUI/gameui.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://ddrtb0h4xq15q" path="res://assets/sprites/player/tacoIdle1.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cxvh6n2irrv83" path="res://assets/sprites/player/tacoIdle2.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dtpbu1mvye1t1" path="res://assets/sprites/player/tacoIdle3.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://bfgrqskussr7a" path="res://assets/sprites/player/tacoJump1.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://h5yyiytvs813" path="res://assets/sprites/player/tacoRun1.png" id="7"]
+[ext_resource type="PackedScene" uid="uid://ejte5v8l2k0j" path="res://scenes/playerStuff/weapon.tscn" id="8"]
+[ext_resource type="Script" uid="uid://c1yidxvuvgrva" path="res://scripts/audio.gd" id="9"]
+[ext_resource type="AudioStream" uid="uid://dmta5tqk0etd5" path="res://assets/sounds/sfx/BlackHoleLaunch.wav" id="10"]
+[ext_resource type="AudioStream" uid="uid://c1mnb5d528aa5" path="res://assets/sounds/sfx/Shoot2.wav" id="11"]
+[ext_resource type="AudioStream" uid="uid://cwppx6134ug0d" path="res://assets/sounds/sfx/Footstep1.wav" id="12"]
+[ext_resource type="AudioStream" uid="uid://bdld7pugtvph4" path="res://assets/sounds/sfx/Dodge2.wav" id="13"]
+[ext_resource type="AudioStream" uid="uid://drdhf5wk7bl2e" path="res://assets/sounds/sfx/Dash.ogg" id="14"]
+[ext_resource type="AudioStream" uid="uid://baa5xukn4433b" path="res://assets/sounds/sfx/wallcling.wav" id="15"]
+[ext_resource type="Texture2D" uid="uid://dh04fsw781md8" path="res://icon.svg" id="16_ji7s8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m07jl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_885yx"]
+size = Vector2(40, 40)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 10
+collision_layer = 4
+script = ExtResource("1")
+
+[node name="GameUI" parent="." instance=ExtResource("2")]
+
+[node name="Cursor" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.356863)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("16_ji7s8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_m07jl")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_885yx")
+
+[node name="Weapon" parent="." instance=ExtResource("8")]
+visible = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Weapon"]
+position = Vector2(0, 6)
+scale = Vector2(0.25, 0.125)
+texture = ExtResource("16_ji7s8")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_885yx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("9")
+
+[node name="Shoot1" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("10")
+volume_db = -15.0
+
+[node name="Shoot2" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("11")
+volume_db = -15.0
+pitch_scale = 1.1
+
+[node name="Footstep1" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("12")
+volume_db = 5.0
+
+[node name="Dodge2" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("13")
+volume_db = -12.0
+pitch_scale = 1.2
+
+[node name="Dash" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("14")
+volume_db = -12.0
+pitch_scale = 0.8
+
+[node name="Wallcling" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("15")
+volume_db = -20.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

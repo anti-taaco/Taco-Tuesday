@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh7eajubiwsi8"]
+
+[ext_resource type="Script" uid="uid://dt4n8vf0ahpvu" path="res://scripts/main_menu.gd" id="1_wjfjy"]
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_wjfjy")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -40.0
+offset_top = -30.0
+offset_right = 45.0
+offset_bottom = 25.0
+text = " START"
+
+[node name="Camera2D" type="Camera2D" parent="."]

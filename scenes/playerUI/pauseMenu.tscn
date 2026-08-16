@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdh4c6f0087yc"]
+
+[ext_resource type="Script" uid="uid://qdgb45ml7ay" path="res://scripts/pause_menu.gd" id="1"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1920.0
+offset_bottom = -1024.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Resume" type="Button" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_left = -95.0
+offset_top = -185.0
+offset_right = 95.0
+offset_bottom = -80.0
+text = "RESUME
+"
+
+[node name="Restart" type="Button" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_left = -95.0
+offset_top = -60.0
+offset_right = 95.0
+offset_bottom = 45.0
+text = "RESTART
+
+"
+
+[node name="Quit" type="Button" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_left = -95.0
+offset_top = 65.0
+offset_right = 95.0
+offset_bottom = 170.0
+text = "QUIT
+"

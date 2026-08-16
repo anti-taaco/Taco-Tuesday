@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://b6sw5snxwi7or"]
+
+[ext_resource type="PackedScene" uid="uid://dg02d2fqlwvfk" path="res://scenes/playerStuff/player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://c3bfhu5udmgo6" path="res://scenes/enemies/cannonball.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/guard.tscn" id="3"]
+[ext_resource type="AudioStream" uid="uid://4fvxt34sgv2p" path="res://assets/sounds/music/Unstoppable Force.mp3" id="4"]
+[ext_resource type="Texture2D" uid="uid://be7k4iohia4x6" path="res://assets/background/draftTile (1).png" id="5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kty87"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p7drx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3js7w"]
+texture = ExtResource("5")
+4:2/size_in_atlas = Vector2i(4, 2)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 16, 32, -16, -32, -16, -32, 12, -32, 16)
+8:0/size_in_atlas = Vector2i(4, 2)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 16, 32, -16, -32, -16, -32, 16)
+12:2/size_in_atlas = Vector2i(4, 2)
+12:2/0 = 0
+12:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(32, -16, 32, 16, -32, 16, -32, -16)
+12:2/0/physics_layer_1/polygon_0/one_way = true
+16:0/size_in_atlas = Vector2i(4, 2)
+16:0/0 = 0
+16:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(32, -16, 32, 16, -32, 16, -32, -16)
+16:0/0/physics_layer_1/polygon_0/one_way = true
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 32, 32, -32, -32, -32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_wprqt"]
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_3js7w")
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1")]
+
+[node name="Cannonball" parent="." instance=ExtResource("2")]
+
+[node name="Guard" parent="." instance=ExtResource("3")]
+position = Vector2(536, 212)
+
+[node name="WallL" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallL"]
+position = Vector2(-872, 8)
+shape = SubResource("WorldBoundaryShape2D_kty87")
+
+[node name="Polygon2D" type="Polygon2D" parent="WallL"]
+position = Vector2(-3200, -680)
+scale = Vector2(1, 61.5)
+offset = Vector2(1664, 105.301)
+polygon = PackedVector2Array(664, -88, 664, -104, 648, -104, 648, -88)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0, 250)
+shape = SubResource("WorldBoundaryShape2D_p7drx")
+
+[node name="Polygon2D" type="Polygon2D" parent="Floor"]
+position = Vector2(1092.33, -178.8)
+scale = Vector2(2.27102, 1.11667)
+polygon = PackedVector2Array(-872, 384, 888, 384, 888, 440.548, 888, 504, -872, 504)
+
+[node name="UnstoppableForce" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4")
+volume_db = -20.0
+autoplay = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_wprqt")
+format = 2
+layer_0/tile_data = PackedInt32Array(524240, 1, 0, 589790, 262145, 2, 458722, 524289, 0, 458712, 524289, 0, 589784, 262145, 2, 589800, 786433, 2, 458732, 1048577, 0, 851928, 524289, 0, 852021, 1, 0, 589877, 1, 0, 393294, 1, 0, 131150, 1, 0, -130994, 1, 0, -393138, 1, 0, -655282, 1, 0, 655461, 1, 0, 393317, 1, 0, 131173, 1, 0, -130971, 1, 0, -393115, 1, 0, -655259, 1, 0)
